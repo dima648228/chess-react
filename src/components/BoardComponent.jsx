@@ -1,18 +1,20 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import '../styles/App.css'
 
-import Board from '../classes/Board'
-
 import CellComponent from './CellComponent'
 
-const BoardComponent = () => {
-    const [board,setBoard] = useState([])
+const BoardComponent = ({board,setBoard}) => {
 
     return (
         <div className='board'>
-            <CellComponent />
-            <CellComponent />
+            {board.cells.map((row,index) => 
+                <React.Fragment key={index}>
+                    {row.map(cell =>
+                        <CellComponent cell={cell} key={cell.id}/>
+                    )}
+                </React.Fragment>
+            )}
         </div>
     )
 }

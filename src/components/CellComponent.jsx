@@ -1,9 +1,13 @@
 
 import '../styles/App.css'
 
-const CellComponent = () => {
+const CellComponent = ({cell}) => {
+    console.log(cell.figure)
+
     return (
-        <div className='cell white'></div>
+        <div className={['cell', cell.color].join(' ')}>
+            {cell.figure?.logo && <img src={cell.figure.logo} alt='' />}
+        </div>
     )
 }
 
