@@ -9,4 +9,12 @@ export class Pawn extends Figure {
         this.logo = color === "black" ? blackLogo : whiteLogo
         this.name = FIGURES.PAWN
     }
+
+    canMove(target) {
+        if (!super.canMove(target)) {
+            return false
+        }
+
+        return true
+    }
 }

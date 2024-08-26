@@ -1,12 +1,16 @@
 
 import '../styles/App.css'
 
-const CellComponent = ({cell}) => {
-    console.log(cell.figure)
+const CellComponent = ({cell,selected,click}) => {
 
     return (
-        <div className={['cell', cell.color].join(' ')}>
-            {cell.figure?.logo && <img src={cell.figure.logo} alt='' />}
+        <div 
+            className={['cell', cell.color, selected?'selected':''].join(' ')}
+            onClick={() => click(cell)}
+            style={{background: cell.available && cell.figure ? 'green' : ''}}
+        >
+            {cell.available && !cell.figure && <div className='available' />}
+            {cell.figure && cell.figure.logo && <img src={cell.figure.logo} alt='' />}
         </div>
     )
 }

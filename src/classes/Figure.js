@@ -9,7 +9,7 @@ export const FIGURES = {
 }
 
 export class Figure {
-    сonstructor(color,cell) {
+    constructor(color,cell) {
         this.color = color
         this.cell = cell
         this.cell.figure = this
@@ -19,10 +19,21 @@ export class Figure {
     }
 
     canMove(target) {
+        if (target.figure?.color === this.color) {
+            return false
+        }
+
+        if (target.figure?.name === FIGURES.KING) {
+            return false
+        }
+
         return true
+
     }
 
     moveFigure(target) {
-
+        target.figure = this;    
+        this.cell.figure = null; 
+        this.cell = target;
     }
 }

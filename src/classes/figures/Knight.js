@@ -9,4 +9,18 @@ export class Knight extends Figure {
         this.logo = color === "black" ? blackLogo : whiteLogo
         this.name = FIGURES.KNIGHT
     }
+
+    canMove(target) {
+        if (!super.canMove(target)) {
+            return false
+        }
+
+        // Логика для движения коня будет находиться непосредственно в самом классе коня.
+        const dx = Math.abs(this.cell.x - target.x)
+        const dy = Math.abs(this.cell.y - target.y)
+
+        
+
+        return true
+    }
 }
