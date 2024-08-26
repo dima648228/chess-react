@@ -15,6 +15,16 @@ export class King extends Figure {
             return false
         }
 
-        return true
+        // Логика короля реализована в самом классе короля
+
+        const dx = Math.abs(target.x - this.cell.x);
+        const dy = Math.abs(target.y - this.cell.y);
+
+        // Король может ходить на одну клетку в любом направлении
+        if ((dx <= 1 && dy <= 1) && this.cell.board.getCell(target.x, target.y).isEmpty()) {
+            return true;
+        }
+
+        return false
     }
 }

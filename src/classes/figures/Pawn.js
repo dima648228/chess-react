@@ -5,7 +5,7 @@ import whiteLogo from '../../assets/white-pawn.png'
 
 export class Pawn extends Figure {
 
-    isFirstStep = false
+    isFirstStep = true
 
     constructor(color,cell) {
         super(color,cell)
@@ -30,7 +30,7 @@ export class Pawn extends Figure {
         }
         
         if (target.y === this.cell.y + direction 
-            && target.x === this.cell.x+1 || target.x === this.cell.x - 1
+            && (target.x === this.cell.x+1 || target.x === this.cell.x - 1)
             && this.cell.isEnemy(target)) {
                 return true
         }
@@ -40,6 +40,6 @@ export class Pawn extends Figure {
 
     moveFigure(target) {
         super.moveFigure(target)
-        this.isFirstStep = true
+        this.isFirstStep = false
     }
 }
