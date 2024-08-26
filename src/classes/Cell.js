@@ -15,6 +15,14 @@ export class Cell {
         return this.figure === null
     }
 
+    isEnemy(target) {
+        if (target.figure) {
+            return this.figure?.color !== target.figure.color
+        }
+
+        return false
+    }
+
     isEmptyVertical(target) {
         if (this.x !== target.x) {
             return false
