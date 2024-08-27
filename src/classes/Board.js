@@ -10,6 +10,8 @@ import { Queen  } from './figures/Queen'
 export class Board {
     constructor() {
         this.cells = []
+        this.lostWhiteFigures = []
+        this.lostBlackFigures = []
     }
 
     initCells() {

@@ -11,6 +11,10 @@ export class Cell {
         this.id = Math.random()
     }
 
+    addLostFigure(target) {
+        target.color === "white" ? this.board.lostWhiteFigures.push(target) : this.board.lostBlackFigures.push(target)
+    }
+
     isEmpty() {
         return this.figure === null
     }
@@ -79,5 +83,8 @@ export class Cell {
 
     moveFigure(target) {
         this.figure?.moveFigure(target)
+        if (target.figure) {
+            this.addLostFigure(target.figure)
+        }
     }
 }
