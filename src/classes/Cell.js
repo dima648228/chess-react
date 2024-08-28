@@ -82,9 +82,9 @@ export class Cell {
     }
 
     moveFigure(target) {
-        this.figure?.moveFigure(target)
         if (target.figure) {
             this.addLostFigure(target.figure)
         }
+        this.figure?.moveFigure(target)
     }
 }

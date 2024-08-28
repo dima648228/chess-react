@@ -3,6 +3,7 @@ import './styles/App.css'
 import React, {useState,useEffect} from 'react';
 import BoardComponent from './components/BoardComponent'
 import LostFiguresComponent from './components/LostFigures'
+import Timer from './components/Timer'
 
 import {Board} from './classes/Board'
 import {Player} from './classes/Player'
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <div className="app">
+        <Timer restart={restart} currentPlayer={currentPlayer} />
         <BoardComponent board={board} setBoard={setBoard} currentPlayer={currentPlayer} swapPlayer={swapPlayer}/>
 
         <div>
